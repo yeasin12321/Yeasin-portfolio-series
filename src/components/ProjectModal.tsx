@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { projects, type Project } from '../data/portfolio';
+import { projects, publicAsset, type Project } from '../data/portfolio';
 import { useScrollLock } from '../hooks/smoothScroll';
 import { EASE, Magnetic } from './fx';
 import { ProjectArt } from './Poster';
@@ -67,7 +67,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
             </button>
             <div className="absolute inset-x-0 bottom-0 px-5 pb-6 sm:px-10">
               <motion.p className="mb-2 flex items-center gap-2 text-[11px] font-bold tracking-[0.34em] text-bone/80" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-                <img src="/favicon.svg" className="h-5 w-5 rounded" alt="" aria-hidden /> ORIGINAL
+                <img src={publicAsset('favicon.svg')} className="h-5 w-5 rounded" alt="" aria-hidden /> ORIGINAL
               </motion.p>
               <motion.h2
                 id={`title-${project.id}-modal`}
