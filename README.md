@@ -1,95 +1,76 @@
-# SUSHMITA — THE SERIES
+# Yeasin Kabir — The Series 🎬
 
-A cinematic, streaming-inspired portfolio for **Sushmita Dasari**: Full-Stack Developer and B.Tech AI & ML student.
-Every section is an episode, every project is an Original, and the whole site plays like a series.
+An interactive, cinematic portfolio web application inspired by the Netflix streaming interface. Built with **React**, **TypeScript**, **Tailwind CSS**, and **Vite**, showcasing software engineering projects, automated pipelines, creative Bengali literature, and academic milestones.
 
-> A personal portfolio with a fictional streaming-platform look. It is not affiliated with Netflix or any other streaming service and uses none of their logos.
+---
 
-## Run it locally
+## 🌟 Features
 
-Requires **Node.js 18+**.
+- **Cinematic UI / Streaming Experience:** Complete with a hero title sequence, video trailer mood, custom styled Netflix "Y" logo, and dynamic browsing cards.
+- **My Journey (Multi-Season Arc):**
+  - **Season 1:** The Humanities Chapter (Satkhira Government College)
+  - **Season 2:** Teaching & Academic Leadership (Yeaxmi Education Care)
+  - **Season 3:** Code & Automation Originals (Teledrive Cloud, Full-Stack Apps)
+  - **Season 4:** Literary Works & Published Novels (*ধূসর বসন্ত*, *কাজল চোখের মায়া*, *নিভৃত সংলাপ*, ইত্যাদি)
+- **Centralized Data Layer:** Entire website content configured and managed cleanly via `src/data/portfolio.ts`.
+- **High Performance:** Responsive WebP image handling, fast load times, and mobile-friendly progressive layout.
 
-```bash
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, TypeScript, Tailwind CSS, Vite
+- **Architecture:** Component-driven, Central Data-driven (`portfolio.ts`)
+- **Hosting & CI/CD:** GitHub Actions / GitHub Pages / Vercel
+
+---
+
+## 🚀 Getting Started Locally
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/yeasin12321/Yeasin-portfolio-series.git](https://github.com/yeasin12321/Yeasin-portfolio-series.git)
+   cd Yeasin-portfolio-series
+   Install dependencies:
+
+Bash
 npm install
+Start the local development server:
+
+Bash
 npm run dev
-```
+Open in browser:
+Navigate to http://localhost:5173 to explore the series locally.
 
-Open the URL Vite prints (usually http://localhost:5173).
+📁 Key Project Structure
+Plaintext
+├── public/              # Static assets, WebP images, and SVG icons
+├── src/
+│   ├── components/      # UI components (Hero, Navbar, Originals, Seasons, etc.)
+│   ├── data/
+│   │   └── portfolio.ts # Central profile, projects, literature, and season data
+│   ├── index.css        # Global CSS & typography configuration
+│   └── App.tsx          # Main application layout
+├── index.html           # HTML template with Google Fonts integration
+└── vite.config.ts       # Vite build & deployment settings
+👤 Author
+Yeasin Kabir
 
-Production build:
+Website: yeasinkabir.pro.bd
 
-```bash
-npm run build
-npm run preview
-```
+GitHub: @yeasin12321
 
-The static site is written to `dist/` and can be deployed as-is to Vercel, Netlify, GitHub Pages or any static host.
+Email: yeasinkabir00000@gmail.com
 
-## Updating the content
 
-**All content lives in one file: [`src/data/portfolio.ts`](src/data/portfolio.ts).** It was generated from the resume, and every component reads from it.
+---
 
-| To change… | Edit |
-| --- | --- |
-| Name, intro, email, LinkedIn, GitHub | `profile` |
-| A project, or a new one | `projects` (add an object; it appears in Originals, the overlay, the resume sheet and the counts) |
-| Achievements / certifications | `achievements`, `certifications` |
-| Skills and their "where it's used" notes | `skillCategories`, `skillEvidence` |
-| Seasons and episodes (My Journey) | `seasons` |
-| Top 10 row | `topPicks` |
-| ▶ Play Intro highlight reel | `introSlides` |
-| Profile order (Recruiter / Developer / Creative) | `viewerProfiles` |
-| Opening studio card text | `profile.originalLabel` |
-
-**Resume:** replace `public/assets/Sushmita_Dasari_Resume.pdf`.
-
-**Photo:** replace `pic1.jpeg` (high-res photo) and `pic.png` (background-removed cutout with the same framing), then run:
-
-```bash
-npm run images
-```
-
-This rebuilds the responsive WebP portraits and the social share image in `public/assets/`.
-
-## What's inside
-
-```
-src/
-  data/portfolio.ts        ← single source of truth (from the resume)
-  App.tsx                  ← stages: opening → profile select → home; overlays
-  components/
-    OpeningSequence        ← black → studio card → SUSHMITA → THE SERIES → portrait → ▶ PLAY
-    ProfileSelector        ← "Who's watching?" (changes section order only)
-    Navbar                 ← hide-on-scroll nav, profile switcher, mobile menu
-    Hero                   ← billboard: parallax portrait, particles, light streaks, floating chips
-    PlayIntro              ← ▶ Play Intro: zoom into portrait → highlight reel (pause, ← →, tap zones)
-    ContinueWatching       ← cards with real "watched" progress bars
-    About                  ← The Pilot
-    Seasons / EpisodeCard  ← My Journey as seasons and episodes
-    Originals / ProjectCard← pinned horizontal sequence on desktop, swipe rail on touch
-    ProjectModal           ← full-screen project overlay with a shared-element transition
-    TopPicks               ← Top 10-style row
-    Skills                 ← skill genres; each card shows where the skill appears
-    Achievements           ← award-poster cards + certification rail (links to credentials)
-    ResumeViewer/ResumeModal ← designed resume sheet, PDF viewer, download
-    FinalCTA               ← TO BE CONTINUED… + contact links
-    CustomCursor, fx.tsx   ← cursor states, magnetic buttons, 3D tilt, text reveals, particles
-  hooks/                   ← Lenis smooth scroll + scroll lock, media queries, watch progress
-scripts/build-images.mjs   ← portrait/share-image pipeline (sharp)
-```
-
-**Stack:** React 18, TypeScript, Vite 6, Tailwind CSS 4, Framer Motion 11, Lenis.
-
-## Accessibility and performance
-
-- `prefers-reduced-motion` is respected: smooth scroll, the custom cursor, tilt, particles, grain and the pinned horizontal scroll turn off, and the opening jumps straight to its final frame.
-- Hover effects only run on devices with a precise pointer. Touch devices get tap interactions and native swipe rails.
-- The custom cursor appears only with a mouse or trackpad.
-- Overlays close with Esc, and the highlight reel supports Space and the ← → keys.
-- Portraits are responsive WebP files (25–90 KB). Overlays are code-split, and particles pause when they're off screen.
-
-## Keyboard shortcuts
-
-- **Opening:** Enter or Esc skips it.
-- **Play Intro:** Space pauses, ← and → change slides, Esc closes.
-- **Project and resume overlays:** Esc closes.
+### কীভাবে ব্যবহার করবেন:
+1. VS Code-এ `README.md` ফাইলটি ওপেন করুন[cite: 1, 20]।
+2. ফাইলের আগের সব লেখা মুছে দিয়ে ওপরের কোডটি পেস্ট করুন।
+3. `Ctrl + S` দিয়ে সেভ করুন।
+4. টার্মিনালে নিচের কমান্ডগুলো দিয়ে পুশ করে দিন[cite: 16]:
+   ```powershell
+   git add README.md
+   git commit -m "Update README with personal portfolio details"
+   git push origin main
